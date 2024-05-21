@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<h1>Liste des agents</h1>
+<div id="agents"></div>
+<script>
+    fetch('http://localhost:3000/agents')
+    .then((Response) => response.json())
+    .then((data) => {
+        console.log(data)
+        let agents = document.querySelector('#agents')
+        data.foreach(agent => {
+            agent.innerHTML +=
+            '<h2>${agent}</h2>'
+        })
+    })
+</script>
